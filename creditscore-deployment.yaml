@@ -5,9 +5,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: rest-creditscore
+  name: rest-creditscore-demo
   labels:
-    run: rest-creditscore
+    run: rest-creditscore-demo
 spec:
   replicas: 1
   strategy:
@@ -18,15 +18,15 @@ spec:
   template:
     metadata:
       labels:
-        run: rest-creditscore
+        run: rest-creditscore-demo
     spec:
       containers:
-      - image: wcr.io/jreevesession/rest-creditscore:latest
+      - image: wcr.io/ayaranga/rest-creditscore:latest
         imagePullPolicy: Always
-        name: rest-creditscore
+        name: rest-creditscore-demo
         ports:
         - containerPort: 8080
           protocol: TCP
       imagePullSecrets:
-      - name: ocrsecret
+      - name: ocrsecretdemo
       restartPolicy: Always
